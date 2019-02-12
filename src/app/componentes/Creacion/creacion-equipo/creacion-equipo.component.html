@@ -1,0 +1,49 @@
+<form>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Inscribir un Equipo</h1>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Nombre</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" [(ngModel)]="equipo.nombre">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Club</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Club" aria-describedby="basic-addon1" name="club" [(ngModel)]="equipo.club">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Pais</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Pais" aria-describedby="basic-addon1" name="pais"[(ngModel)]="equipo.pais">
+      </div>
+  
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Cantidad de Jugadores:</span>
+        </div>
+        <input type="number" min="1" class="form-control" aria-label="CantJugadores" aria-describedby="basic-addon1" name="cantJugadores" [(ngModel)]="equipo.cantJugadores">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Responsable</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Responsable" aria-describedby="basic-addon1" name="responsable" [(ngModel)]="equipo.responsable">
+      </div>
+
+      <div id="boton">
+        <button  (click)="crear()">Crear</button>
+      </div>
+    </div>
+  </div>
+</form>

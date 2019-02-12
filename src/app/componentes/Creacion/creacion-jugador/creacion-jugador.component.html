@@ -1,0 +1,28 @@
+<form>
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Inscribir un Jugador</h1>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" [(ngModel)]="jugador.nombre">
+        </div>
+  
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Posicion</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Posicion" aria-describedby="basic-addon1" name="Posicion" [(ngModel)]="jugador.posicion">
+        </div>
+  
+        <div id="boton">
+          <button  (click)="crear()">Crear</button>
+        </div>
+      </div>
+    </div>
+  </form>

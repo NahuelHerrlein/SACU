@@ -1,0 +1,39 @@
+<form *ngIf="campeonato">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">{{campeonato.nombre}}</h1>
+      <h4 class="card-title">Campeonato de {{campeonato.disciplina}}</h4>
+      <h5 class="card-title">Cantidad de equipos/participantes: {{campeonato.cantParticipantes}}</h5>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row justify-content-md-center">
+        <h5 class="card-title">Lista de Equipos/Participantes</h5>
+        <button type="btn-group" class="btn btn-outline-success" (click)="nuevoEquipo()">+</button>
+      </div>
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Club</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Responsable</th>
+            <th scope="col">Jugadores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of campeonato.equipos">
+            <td>{{e.id}}</td>
+            <td>{{e.nombre}}</td>
+            <td>{{e.club}}</td>
+            <td>{{e.pais}}</td>
+            <td>{{e.responsable}}</td>
+            <td>{{e.cantJugadores}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</form>
