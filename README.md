@@ -1,30 +1,17 @@
 # SACU
+# Sistema de Administración de Campeonatos Universal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
+Applicacion creada con angular 6 contra servidor REST Express y Postgresql para la asignatura Laboratorio 4 de la Tecnicatura Superior en Programacion de la UTN-FRP.
 
-## Development server
+# Modo desarrollo
+-Una vez descargado y habiendo intalado todos los paquetes necesarios ejecute el siguiente comando dentro de la carpeta del proyecto para levantarlo:
+`ng serve -o`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-Para levantar el servidor dirijase dentro de la carpeta src/server y ejecute el siguiente comando:
+`nodemon index.js`
 
-## Code scaffolding
+#Observaciones
+-Para el servidor las dependencias necesarias son => "npm install -s express sequelize nodemon pg pg-hstore multer body-parser". 
+-Para la app agregamos bootstrap jquery y popper => "npm install -s bootstrap jquery popper.js --save-prod".
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-
-Modificar el método create para que tome el id del campeonato
+-Para levantar el servidor debe crear primero una base de datos de postgres llamada "SACUDB". Es importante que la base de datos sea Postgres ya que se utiliza la opcion "returning: true" y en la documentacion oficial indica que ésta opción solo funciona con dicha base de datos

@@ -1,0 +1,53 @@
+<div class="card mx-auto" *ngIf="jugador">
+  <div class="card-body">
+    <h1 class="card-title">Editar datos del jugador {{jugador.nombre}}</h1>
+
+    <div class="alert alert-danger" role="alert" *ngIf="mensajeError">
+      {{mensajeError}}
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nombre</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" [(ngModel)]="jugador.nombre">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Posicion</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Posicion" aria-describedby="basic-addon1" name="Posicion" [(ngModel)]="jugador.posicion">
+    </div>
+
+  </div>
+  <div class="btn-group">
+    <button id="botonIzq" class="btn btn-outline-secondary" (click)="atras()">Atras</button>
+    <button id="botonDer" class="btn btn-outline-success" (click)="guardar()">Guardar</button>
+  </div>
+  <div id="btnEliminar">
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mensajeConfirmacion">Eliminar</button>
+    </div>
+</div>
+
+<!-- Ventana Modal -->
+<div class="modal fade" id="mensajeConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro que desea eliminar este jugador?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="exampleModalLabel">
+        Esta accion no puede revertirse
+      </div>
+      <div class="btn-group">
+          <button id="botonIzq" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+          <button id="botonDer" class="btn btn-danger" data-dismiss="modal" (click)="eliminar()">Eliminar</button>
+        </div>
+
+    </div>
+  </div>
+</div>

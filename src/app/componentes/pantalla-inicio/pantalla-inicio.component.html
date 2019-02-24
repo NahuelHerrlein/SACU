@@ -1,36 +1,28 @@
-<form>
-  <div style="margin:15px">
-    <div *ngIf="hayActivos">
-      <h3 style="margin:10px">Los Siguientes son los campeonatos activos:</h3>
-      <table class="table table-info">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Disciplina</th>
-            <th scope="col">Cantidad de Participantes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let camp of campeonatos">
-            <td>{{camp.nombre}}</td>
-            <td>{{camp.disciplina}}</td>
-            <td>{{camp.cantParticipantes}}</td>
-            <td>
-              <button class="btn btn-success" (click)="mostrarInfo(camp.id)">IR</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div *ngIf="!hayActivos">
-        <h3 style="margin:10px">No hay campeonatos activos en este momento.</h3>
-        <h3 style="margin:10px">Desea crear uno?</h3>
-    </div>
+<div class="card mx-auto" *ngIf="campeonatos">
+  <div class="card-body" *ngIf="campeonatos.length > 0" >
+    <h5 class="card-title">Los siguientes son los campeonatos ya creados:</h5>
+    <table class="table table-dark" data-spy="scroll">
+      <thead>
+        <tr id="celdas">
+          <th scope="col">Nombre</th>
+          <th scope="col">Disciplina</th>
+          <th scope="col">Cantidad de Participantes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="celdas" *ngFor="let camp of campeonatos" (click)="mostrarInfo(camp.id)">
+          <td>{{camp.nombre}}</td>
+          <td>{{camp.disciplina}}</td>
+          <td>{{camp.cantParticipantes}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
-  
-  
-  
-  <Button [routerLink]="'/campeonato/nuevo'">Crear Campeonato</Button>
-  
-</form>
+  <div *ngIf="campeonatos.length == 0">
+      <h3 class="card-title" style="margin:10px">No hay campeonatos activos en este momento.</h3>
+      <h3 class="card-title" style="margin:10px">¿Desea crear uno?</h3>
+    </div>
+    <div id="boton">
+        <button type="button" class="btn btn-outline-primary" [routerLink]="'/campeonato/nuevo'">Crear Campeonato</button>
+      </div>
+</div>

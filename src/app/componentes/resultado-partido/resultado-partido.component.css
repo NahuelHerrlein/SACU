@@ -1,0 +1,28 @@
+.card{
+    width: 25rem;
+    margin-top: 10%;
+    background: rgb(187, 187, 187);
+  }
+  
+  .card-title{
+    text-align: center;
+  }
+
+  #botonIzq {
+    margin-left: 5mm;
+    margin-bottom: 3mm;
+}
+  #botonDer {
+    margin-right: 5mm;
+    margin-bottom: 3mm;
+}
+  #centrado {
+    text-align: center;
+  }
+  #basic-addon1 {
+    width: 3cm;
+}
+
+.modal-title {
+  text-align: center
+}

@@ -3,9 +3,13 @@ import { Equipo } from './equipo';
 export class Partido {
   id: number;
   fecha: Date;
-  lugar: String;
-  contrincantes: Equipo[];
+  lugar: string;
+  equipos: Equipo[];
   puntos: number[];
-  orden: String;
-  estado: String;
+  orden: number;
+  estado: string;
+  //Es el número del partido dentro de la etapa
+  nroPartido: number;
+  etapaId: number;
 }
+ 

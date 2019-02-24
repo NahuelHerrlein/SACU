@@ -1,0 +1,11 @@
+<div class="card mx-auto" *ngIf="equipo">
+  <div class="card-body">
+    <h1 class="card-title">FELICITACIONES A</h1>
+    <h1 class="card-title">{{equipo.nombre}}</h1>
+    <h1 class="card-title">POR SER EL EQUIPO GANADOR DEL CAMPEONATO</h1>
+    
+  </div>
+  <div class="btn-group">
+    <button id="boton" class="btn btn-outline-success" (click)="terminar()">TERMINAR</button>
+  </div>
+</div>

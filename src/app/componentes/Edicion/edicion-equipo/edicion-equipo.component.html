@@ -1,0 +1,74 @@
+<div class="card mx-auto" *ngIf="equipo">
+  <div class="card-body">
+    <h5 class="card-title">Edicion del Equipo: {{equipo.nombre}}</h5>
+    <div class="alert alert-danger" id="mensaje" role="alert" *ngIf="mensajeError">
+      {{mensajeError}}
+    </div>
+    
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nombre:</span>
+      </div>
+      <input type="text" class="form-control" name='nombre' [(ngModel)]="equipo.nombre" placeholder="Nombre">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Club:</span>
+    </div>
+      <input type="text" class="form-control" name='club' [(ngModel)]="equipo.club" placeholder="Club">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Pais:</span>
+    </div>
+      <input type="text" class="form-control" name='pais' [(ngModel)]="equipo.pais" placeholder="Pais">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Responsable:</span>
+    </div>
+      <input type="text" class="form-control" name='responsable' [(ngModel)]="equipo.responsable" placeholder="Responsable">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Cantidad de Jugadores:</span>
+      </div>
+      <input type="number" min="1" pattern="\d*" class="form-control" name='CantJugadores' [(ngModel)]="equipo.cantJugadores" placeholder="Cantidad de jugadores">
+    </div>
+
+  </div>
+  <div class="btn-group">
+    <button id="botonIzq" class="btn btn-outline-secondary" (click)="atras()">Atras</button>
+    <button id="botonDer" class="btn btn-outline-success" (click)="guardar()">Guardar</button>
+  </div>
+  <div id="btnEliminar">
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mensajeConfirmacion">Eliminar</button>
+    </div>
+</div>
+
+
+<!-- Ventana Modal -->
+<div class="modal fade" id="mensajeConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro que desea eliminar este equipo?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="exampleModalLabel">
+        Esta accion no puede revertirse
+      </div>
+      <div class="btn-group">
+          <button id="botonIzq" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+          <button id="botonDer" class="btn btn-danger" data-dismiss="modal" (click)="eliminar()">Eliminar</button>
+        </div>
+
+    </div>
+  </div>
+</div>

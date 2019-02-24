@@ -1,48 +1,38 @@
 <form *ngIf="equipo">
   <div class="card">
     <div class="card-body">
-      <h1 class="card-title">{{equipo.nombre}}</h1>
-      <h4 class="card-title">Club "{{equipo.club}}"</h4>
-      <h4 class="card-title">{{equipo.pais}}</h4>
-      <h5 class="card-title"></h5>
+      <h1 class="card-title">Equipo: {{equipo.nombre}}</h1>
+      <h2 class="card-title">Club "{{equipo.club}}"</h2>
+      <h3 class="card-title">{{equipo.pais}}</h3>
+      <h5 class="card-title">Cantidad de participantes: {{equipo.cantJugadores}}</h5>    </div>
+    <div class="btn-group">
+      <a id="botones" class="btn btn-outline-secondary" (click)="atras()">Atras</a>
+      <a id="botones" class="btn btn-outline-primary" (click)="editar()">Editar</a>
     </div>
+  </div>
+  <div class="alert alert-danger" id="mensaje" role="alert" *ngIf="mensajeError">
+    {{mensajeError}}
   </div>
   <div class="card">
     <div class="card-body">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="row justify-content-md-center">
-              <h5 class="card-title">Plantel</h5>
-              <button type="btn-group" class="btn btn-outline-success" (click)="nuevoJugador()">+</button>
-            </div>
-            <table class="table table-hover table-dark">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Club</th>
-                  <th scope="col">Pais</th>
-                  <th scope="col">Responsable</th>
-                  <th scope="col">Jugadores</th>
-                </tr>
-              </thead>
-              <tbody>
-                 <tr *ngFor="let e of equipo.jugadores">
-                  <td>{{e.id}}</td>
-                  <td>{{e.nombre}}</td>
-                  <td>{{e.club}}</td>
-                  <td>{{e.pais}}</td>
-                  <td>{{e.responsable}}</td>
-                  <td>{{e.cantJugadores}}</td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-            <div class="col">
-            </div>
-          </div>
-        </div>
-      </div>
+      <button type="button" id="botonDer" class="btn btn-outline-success" (click)="nuevoJugador()">+</button>
+      <h5 class="card-title">Plantel:</h5>
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Posicion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let j of equipo.jugadores" (click)="verDetallesJugador(j.id)">
+           <td>{{j.id}}</td>
+           <td>{{j.nombre}}</td>
+           <td>{{j.posicion}}</td>
+         </tr>
+       </tbody>
+      </table>
     </div>
+  </div>
 </form>

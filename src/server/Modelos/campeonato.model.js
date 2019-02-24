@@ -6,18 +6,12 @@ module.exports = (sequelize, Sequelize) => {
     activo: {
       type: Sequelize.BOOLEAN,
       defaultValue: true
-    }
+    },
+    etapaActualId: {type: Sequelize.INTEGER}
   }, {
         validate: {
           esPotencia() {
-            if(this.cantParticipantes < 1) {
-              throw new Error('Solo se permiten numeros potencia de dos');
-            } else {
-              let res = Math.log2(this.cantParticipantes);
-              if(res - Math.floor(res) != 0 ) {
-                throw new Error('Solo se permiten numeros potencia de dos');
-              }
-            }
+            return this.cantParticipantes && !(this.cantParticipantes & (this.cantParticipantes - 1));
           }
         }
       }, {

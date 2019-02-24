@@ -18,7 +18,9 @@ exports.create = (req, res) => {
   jugadorModel.create({
     nombre: req.body.nombre,
     club: req.body.nombre,
-    posicion: req.body.posicion
+    posicion: req.body.posicion,
+    equipoId: req.body.equipoId,
+    equipo_id: req.body.equipoId
   }).then(jugador => {
     res.send(jugador);
   });
@@ -34,7 +36,7 @@ exports.update = (req, res) => {
       id: req.params.id
     }
   }).then(count => {
-    console.log("Equipos actualizados: " + count);
+    res.send(count)
   });
 };
 

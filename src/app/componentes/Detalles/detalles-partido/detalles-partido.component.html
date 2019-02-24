@@ -1,0 +1,54 @@
+<div class="card mx-auto" *ngIf="partido">
+  <div class="card-body">
+    <h1 style="margin:10px" id="centrado">Detalles del Partido {{partido.nroPartido}}</h1>
+
+    <div class="alert alert-danger" id="centrado" role="alert" *ngIf="mensajeError">
+      {{mensajeError}}
+    </div>
+
+    <div class="alert alert-success" id="centrado" role="alert" *ngIf="mensajeOk">
+      {{mensajeOk}}
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Fecha y hora:</span>
+      </div>
+      <input type="datetime-local" class="form-control" name='fecha-hora' [(ngModel)]="partido.fecha">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Lugar:</span>
+      </div>
+      <input type="text" class="form-control" name='lugar' [(ngModel)]="partido.lugar" placeholder="Lugar">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Estado:</span>
+    </div>
+    <select class="custom-select" id="inputGroupSelect02" name="estado" [(ngModel)]="partido.estado">
+      <option selected value="Pendiente">Pendiente</option>
+      <option value="En Juego">En Juego</option>
+      <option value="Terminado">Terminado</option>
+      <option value="Suspendido">Suspendido</option>
+      </select>
+    </div>
+    
+    <div id="centrado">
+      <h3><b>Contrincantes:</b></h3>
+      <h3>{{partido.equipos[0].nombre}} VS {{partido.equipos[1].nombre}}</h3>
+      <h5 *ngIf="partido.orden > 0">El ganador se enfrentara contra el ganador del partido numero {{partido.orden}}</h5>
+      <h5 *ngIf="partido.orden == 0">El ganador sera el Campeon</h5>
+    </div>
+
+  </div>
+  <div class="btn-group">
+    <button id="botonIzq" class="btn btn-outline-secondary" (click)="atras()">Atras</button>
+    <button id="botonDer" class="btn btn-outline-success" (click)="guardar()">Guardar</button>
+  </div>
+  <div id="btnInferior">
+    <button type="button" class="btn btn-outline-primary" (click)="setResultados()">Ingresar Resultado</button>
+    </div>
+</div>

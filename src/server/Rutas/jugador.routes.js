@@ -4,5 +4,5 @@ module.exports = (app) => {
   app.get('/api/jugador/:id', jugador.getOneById);
   app.post('/api/jugador/nuevo', jugador.create);
   app.put('/api/jugador/:id', jugador.update);
-  app.delete('/api/jugador/borrar/:id', jugador.delete);
+  app.put('/api/jugador/borrar/:id', jugador.delete);
 }

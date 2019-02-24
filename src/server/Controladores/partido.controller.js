@@ -1,5 +1,6 @@
 const db = require('../db.config');
 const partidoModel = db.Partido;
+const equipoModel = db.Equipo;
 
 exports.getLista = (req, res) => {
   partidoModel.findAll().then(partidos => {
@@ -9,20 +10,44 @@ exports.getLista = (req, res) => {
 
 exports.getOneById = (req, res) => {
   let id = req.params.id;
-  partidoModel.findById(id).then(partido => {
+  partidoModel.findById(id, {
+    include: [{
+      model: db.Equipo
+    }]
+  }).then(partido => {
     res.send(partido);
+  })
+}
+
+
+exports.getPartidosEtapa = (req, res) => {
+  partidoModel.findAll({
+    where: {
+      etapaId: req.params.idEtapa
+    }
+  }).then(equipos => {
+    res.send(equipos);
   });
 };
 
 exports.create = (req, res) => {
   partidoModel.create({
-    fecha: req.body.fecha,
-    lugar: req.body.lugar,
-    puntos: req.body.puntos,
     orden: req.body.orden,
-    estado: req.body.estado
+    etapaId: req.body.etapaId,
+    etapa_id: req.body.etapaId,
+    nroPartido: req.body.nroPartido
   }).then(partido => {
-    res.send(partido);
+    const ret = Object.assign(
+      {},
+      {
+        id: partido.id,
+        orden: partido.orden,
+        estado: partido.estado,
+        nroPartido: partido.nroPartido,
+        equipos: [req.body.equipos[0], req.body.equipos[1]],
+      }
+    )
+    res.send(ret);
   });
 };
 
@@ -31,14 +56,13 @@ exports.update = (req, res) => {
     fecha: req.body.fecha,
     lugar: req.body.lugar,
     puntos: req.body.puntos,
-    orden: req.body.orden,
     estado: req.body.estado
   }, {
     where: {
       id: req.params.id
     }
   }).then(count => {
-    console.log("Equipos actualizados: " + count);
+    res.send(count);
   });
 };
 

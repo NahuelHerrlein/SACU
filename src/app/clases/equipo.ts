@@ -9,4 +9,6 @@ export class Equipo {
   jugadores: Jugador[];
   responsable: Jugador;
   campeonatoId: number;
+  activo: boolean;
+  partidoId: number;
 }

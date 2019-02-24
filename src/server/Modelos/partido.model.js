@@ -6,8 +6,10 @@ module.exports = (sequelize, Sequelize) => {
     orden: {type: Sequelize.STRING},
     estado: {
       type: Sequelize.STRING,
-      values: ['Pendiente', 'En juego', 'Terminado', 'Suspendido']
-    }
+      values: ['Pendiente', 'En juego', 'Terminado', 'Suspendido'],
+      defaultValue: 'Pendiente'
+    },
+    nroPartido: {type: Sequelize.INTEGER}
   });
   return Partido
 }

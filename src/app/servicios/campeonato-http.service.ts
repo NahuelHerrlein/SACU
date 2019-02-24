@@ -16,4 +16,16 @@ export class CampeonatoHttpService extends BaseHttpService {
   hayCampeonatosActivo():Observable<Campeonato[]> {
     return this.http.get(this._urlBase + "/activos");
   }
+
+  comenzar(camp: any): Observable<Campeonato> {
+    return this.http.post(this._urlBase + '/comenzar', camp);
+  }
+
+  finalizar(idCampeonato: number): Observable<Campeonato> {
+    return this.http.put(this._urlBase + '/finalizar/' + idCampeonato);
+  }
+
+  avanzarEtapa(idEtapa: number, idCampeonato: number): Observable<Campeonato> {    
+    return this.http.post(this._urlBase + '/' + idCampeonato + '/avanzarEtapa/' + idEtapa);
+  }
 }

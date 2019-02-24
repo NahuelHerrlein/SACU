@@ -1,0 +1,50 @@
+<div class="card mx-auto" *ngIf="etapa" id="global">
+
+    <div class="alert alert-danger" id="mensaje" role="alert" *ngIf="mensajeError">
+      {{mensajeError}}
+    </div>
+
+    <div class="alert alert-success" id="mensaje" role="alert" *ngIf="mensajeok">
+      {{mensajeok}}
+    </div>
+
+  <!-- Etapa Final  -->
+  <div class="card mx-auto">
+    <div class="card-body" *ngIf="etapa.nombre == 'Final'">
+      <h5 class="card-title">GRAN FINAL</h5>
+      <div class="card" id="contenedor"style="width: 30vw;">
+        <div class="card-body" (click)="detallesPartido(etapa.partidos[0])">
+            <h3 class="card-title">Partido Final</h3>
+            <li class="list-group-item" id="item">{{etapa.partidos[0].equipos[0].nombre}}</li>
+            <li class="list-group-item" id="item">{{etapa.partidos[0].equipos[1].nombre}}</li> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- El resto de las etapas  -->
+    <div class="card-body" *ngIf="etapa.nombre != 'Final'">
+      <h1 class="card-title">{{etapa.nombre}}</h1>
+      <div>
+          <div class="container">
+            <div class="row" >
+              <div class="col-6" *ngFor="let partido of etapa.partidos">
+                <div class="card" id="contenedor" style="width: 30vw;">
+                  <div class="card-body" (click)="detallesPartido(partido)">
+                      <h3 class="card-title">Partido {{partido.nroPartido}}</h3>
+                      <li class="list-group-item" id="item">{{partido.equipos[0].nombre}}</li>
+                      <li class="list-group-item" id="item">{{partido.equipos[1].nombre}}</li> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="boton">
+          <button type="btn-group"  class="btn btn-outline-success" (click)="siguienteEtapa()">
+            Siguiente Etapa
+          </button>
+        </div>
+      </div>
+</div>

@@ -1,7 +1,28 @@
 .card{
   margin: 5mm;
+  background: rgb(238, 229, 229);
 }
 
 .card-title{
   text-align: center;
+}
+
+#mensaje {
+  text-align: center;
+}
+
+#boton {
+  text-align: center;
+}
+
+#botonDer {
+  float: right !important;
+  margin-right: 5mm;
+  margin-bottom: 3mm;
+}
+
+#botones {
+  margin-left: 5mm;
+  margin-right: 5mm;
+  margin-bottom: 3mm;
 }

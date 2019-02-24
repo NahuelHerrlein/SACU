@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class PantallaInicioComponent implements OnInit {
   campeonatos: Campeonato[];
-  hayActivos: boolean;
 
   constructor(private campeonatoService: CampeonatoHttpService,
               private router: Router          
@@ -19,16 +18,22 @@ export class PantallaInicioComponent implements OnInit {
   ngOnInit() {
     this.campeonatoService.hayCampeonatosActivo().subscribe(camp => {
       this.campeonatos = camp;
-      if(this.campeonatos.length == 0) {
-        this.hayActivos = false;
-      } else {
-        this.hayActivos = true;
-      }
     });
   }
 
   mostrarInfo(id: number) {
-    this.router.navigate(['/detalles-campeonato/' + id]);
+    const camp = this.campeonatos.filter(function (camp) {
+      return camp.id == id;
+    })
+    //Controlamos si el campeonato no está comenzado
+    if(camp[0].etapaActualId == null) {
+      this.router.navigate(['/detalles-campeonato/' + id]);
+    } else {
+    //Si lo está nos dirijimos a la pantalla de la etapa correspondiente
+    this.router.navigate(['detalles-etapa/' + camp[0].etapaActualId]);
+    }
   }
+
+
 
 }

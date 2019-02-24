@@ -12,6 +12,14 @@ import { DetallesCampeonatoComponent } from './componentes/Detalles/detalles-cam
 import { CreacionEquipoComponent } from './componentes/Creacion/creacion-equipo/creacion-equipo.component';
 import { DetallesEquipoComponent } from './componentes/Detalles/detalles-equipo/detalles-equipo.component';
 import { CreacionJugadorComponent } from './componentes/Creacion/creacion-jugador/creacion-jugador.component';
+import { DetallesJugadorComponent } from './componentes/Detalles/detalles-jugador/detalles-jugador.component';
+import { EdicionCampeonatoComponent } from './componentes/Edicion/edicion-campeonato/edicion-campeonato.component';
+import { EdicionEquipoComponent } from './componentes/Edicion/edicion-equipo/edicion-equipo.component';
+import { EdicionJugadorComponent } from './componentes/Edicion/edicion-jugador/edicion-jugador.component';
+import { DetallesEtapaComponent } from './componentes/Detalles/detalles-etapa/detalles-etapa.component';
+import { DetallesPartidoComponent } from './componentes/Detalles/detalles-partido/detalles-partido.component';
+import { ResultadoPartidoComponent } from './componentes/resultado-partido/resultado-partido.component';
+import { AnuncioGanadorComponent } from './componentes/anuncio-ganador/anuncio-ganador.component';
 
 
 @NgModule({
@@ -22,7 +30,15 @@ import { CreacionJugadorComponent } from './componentes/Creacion/creacion-jugado
     DetallesCampeonatoComponent,
     CreacionEquipoComponent,
     DetallesEquipoComponent,
-    CreacionJugadorComponent
+    CreacionJugadorComponent,
+    DetallesJugadorComponent,
+    EdicionCampeonatoComponent,
+    EdicionEquipoComponent,
+    EdicionJugadorComponent,
+    DetallesEtapaComponent,
+    DetallesPartidoComponent,
+    ResultadoPartidoComponent,
+    AnuncioGanadorComponent,
 
   ],
   imports: [

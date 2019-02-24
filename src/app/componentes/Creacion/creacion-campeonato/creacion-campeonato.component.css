@@ -1,0 +1,25 @@
+.card{
+    width: 35rem;
+    margin-top: 10%;
+    background: rgb(238, 229, 229);
+  }
+  
+  .card-title{
+    text-align: center;
+  }
+
+  #boton {
+      margin-left: 5mm;
+      margin-right: 5mm;
+      margin-bottom: 3mm;
+  }
+  
+  #basic-addon1 {
+      width: 3cm;
+  }
+
+  .input-group {
+      width: 100%;
+  }
+
+

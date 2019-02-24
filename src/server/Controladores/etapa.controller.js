@@ -9,7 +9,49 @@ exports.getLista = (req, res) => {
 
 exports.getOneById = (req, res) => {
   let id = req.params.id;
-  etapaModel.findById(id).then(etapa => {
+  etapaModel.findById(id, {
+    include: [{
+      model: db.Partido,
+      include: [{
+        model: db.Equipo
+      }]
+    }]
+  }).then(etapa => {
+    const ret = Object.assign(
+      {},
+      {
+        nombre: etapa.nombre,
+        etapaSiguiente: etapa.etapaSiguiente,
+        campeonatoId: etapa.campeonatoId,
+        partidos: etapa.partidos.map(partido => {
+          return Object.assign(
+            {},
+            {
+              id: partido.id,
+              fecha: partido.fecha,
+              lugar: partido.lugar,
+              puntos: partido.puntos,
+              orden: partido.orden,
+              estado: partido.estado,
+              nroPartido: partido.nroPartido,
+              equipos: partido.equipos.map(equipo => {
+                return Object.assign(
+                  {},
+                  {
+                    id: equipo.id,
+                    nombre: equipo.nombre,
+                    cantJugadores: equipo.cantJugadores,
+                    pais: equipo.pais,
+                    club: equipo.club,
+                    responsable: equipo.responsable
+                  }
+                )
+              })
+            }
+          )
+        })
+      }
+    )
     res.send(etapa);
   });
 };

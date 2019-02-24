@@ -1,0 +1,24 @@
+<div class="card mx-auto" *ngIf="jugador">
+  <div class="card-body">
+    <h1 class="card-title">Detalles del jugador {{jugador.nombre}}</h1>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nombre</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" [(ngModel)]="jugador.nombre" disabled>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Posicion</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Posicion" aria-describedby="basic-addon1" name="Posicion" [(ngModel)]="jugador.posicion" disabled>
+    </div>
+
+  </div>
+  <div class="btn-group">
+    <button id="boton" class="btn btn-outline-secondary" (click)="atras()">Atras</button>
+    <button id="boton" class="btn btn-outline-success" (click)="editar()">Editar</button>
+  </div>
+</div>

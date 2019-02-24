@@ -1,0 +1,57 @@
+<div class="card mx-auto" *ngIf="partido">
+  <div class="card-body">
+    <h1 style="margin:10px" id="centrado">Resultado del Partido {{partido.nroPartido}}</h1>
+
+    <div class="alert alert-danger" id="mensaje" role="alert" *ngIf="mensajeError">
+      {{mensajeError}}
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">{{partido.equipos[0].nombre}}:</span>
+      </div>
+      <input type="number" min="0" class="form-control" name='resultado' [(ngModel)]="puntosEquipo1">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">{{partido.equipos[1].nombre}}:</span>
+      </div>
+      <input type="number" min="0" class="form-control" name='resultado' [(ngModel)]="puntosEquipo2">
+    </div>
+
+
+  </div>
+  <div class="btn-group">
+    <button id="botonIzq" class="btn btn-outline-secondary" (click)="atras()">Atras</button>
+    <button id="botonDer" class="btn btn-outline-success" data-target="#mensajeConfirmacion" data-toggle="modal" (click)="checkResultado()">Guardar</button>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal fade" id="mensajeConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="!mensajeError">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">{{mensajeHeader}}</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" *ngIf="mensajeHeader == 'EMPATE'" id="centrado">
+          {{mensajeBody}}
+          <h3 (click)="setGanador(0, 1)" data-dismiss="modal">{{partido.equipos[0].nombre}}</h3>
+          <h3 (click)="setGanador(1, 0)" data-dismiss="modal">{{partido.equipos[1].nombre}}</h3>
+        </div>
+
+        <div class="modal-body" *ngIf="mensajeHeader != 'EMPATE'" id="centrado">
+            {{mensajeBody}}
+          </div>
+
+        <div class="modal-footer" *ngIf="mensajeHeader != 'EMPATE'">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="volver()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>

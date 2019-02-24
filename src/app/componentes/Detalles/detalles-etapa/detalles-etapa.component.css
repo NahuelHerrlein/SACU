@@ -1,0 +1,32 @@
+#global{
+    margin: 2mm;
+    background-color: rgba(0,0,0,.20)
+  }
+  
+  .card-title{
+    text-align: center;
+  }
+  
+  #mensaje {
+    text-align: center;
+  }
+  
+  #boton {
+    margin-top: 3mm;
+    text-align: center;
+  }
+
+  #item {
+      text-align: center;
+      background-color: rgb(161, 161, 243);
+  }
+
+  #partidoCard {
+    margin: 2mm;
+    background: rgb(238, 229, 229);
+  }
+  #contenedor {
+    background: rgb(238, 229, 229);
+    margin-top: 1mm;
+    margin-bottom: 1mm;
+  }

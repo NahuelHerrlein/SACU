@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 export class BaseHttpService {
   _urlBase = 'http://localhost:3001/api/';
   http: any;
-  constructor(endopoint: string,
+  constructor(endpoint: string,
               http: any) { 
-    this._urlBase = this._urlBase + endopoint;
+    this._urlBase = this._urlBase + endpoint;
     this.http = http;
               }
   
@@ -30,7 +30,8 @@ export class BaseHttpService {
     return this.http.put(this._urlBase + "/" + data.id, data);
   }
 
+  //Los datos no se borran de la base de datos, sino que se hace un softdelete
   delete(id: number) {
-    return this.http.delete(this._urlBase + id)
+    return this.http.put(this._urlBase + "/borrar/" + id)
   }
 }

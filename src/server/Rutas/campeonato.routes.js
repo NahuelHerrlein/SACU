@@ -5,5 +5,8 @@ module.exports = (app) => {
   app.post('/api/campeonatos/nuevo', campeonato.create);
   app.get('/api/campeonatos/:id', campeonato.getOneById);
   app.put('/api/campeonatos/:id', campeonato.update);
-  app.delete('/api/campeonatos/borrar/:id', campeonato.delete);
+  app.put('/api/campeonatos/borrar/:id', campeonato.delete);
+  app.put('/api/campeonatos/finalizar/:id', campeonato.finalizar);
+  app.post('/api/campeonatos/comenzar', campeonato.comenzar);
+  app.post('/api/campeonatos/:idCampeonato/avanzarEtapa/:idEtapa', campeonato.avanzar);
 }

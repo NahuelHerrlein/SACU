@@ -24,7 +24,7 @@ db.Equipo.hasMany(db.Jugador);
 db.Partido.belongsTo(db.Etapa);
 db.Etapa.hasMany(db.Partido);
 
-db.Partido.belongsTo(db.Equipo);
-db.Equipo.hasMany(db.Partido);
+db.Equipo.belongsTo(db.Partido);
+db.Partido.hasMany(db.Equipo );
 
 module.exports = db;
