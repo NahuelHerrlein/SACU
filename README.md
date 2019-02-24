@@ -1,7 +1,7 @@
 # SACU
 # Sistema de Administración de Campeonatos Universal
 
-Applicacion creada con angular 6 contra servidor REST Express y Postgresql para la asignatura Laboratorio 4 de la Tecnicatura Superior en Programacion de la UTN-FRP.
+Aplicacion creada con angular 6 contra servidor REST Express y Postgresql para la asignatura Laboratorio 4 de la Tecnicatura Superior en Programacion de la UTN-FRP.
 
 # Modo desarrollo
 -Una vez descargado y habiendo intalado todos los paquetes necesarios ejecute el siguiente comando dentro de la carpeta del proyecto para levantarlo:
