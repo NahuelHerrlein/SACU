@@ -15,3 +15,5 @@ Applicacion creada con angular 6 contra servidor REST Express y Postgresql para 
 -Para la app agregamos bootstrap jquery y popper => "npm install -s bootstrap jquery popper.js --save-prod".
 
 -Para levantar el servidor debe crear primero una base de datos de postgres llamada "SACUDB". Es importante que la base de datos sea Postgres ya que se utiliza la opcion "returning: true" y en la documentacion oficial indica que ésta opción solo funciona con dicha base de datos
+
+-La consigna que dice "Implementar una consulta que muestre los partidos de una etapa, con sus resultados" está resuelta en el archivo partido.controller.js con el método getPartidosEtapa, al que se puede acceder a través de la url '/api/partido/etapa/:idEtapa'

@@ -58,15 +58,15 @@ export class DetallesEtapaComponent implements OnInit {
         } else {
          this.ordenarPartidos();
         }
+        
         if(!this.termino() && this.etapa.etapaSiguiente) {          
             this.mensajeok = "Ya se jugaron todos los partidos. Puede continuar en la siguiente etapa"
-        }
+        }        
 
         this.etapa.partidos.forEach(partido => {
           this.ordenarEquipos(partido);
         })
       }, error=> console.log(error));
-
   }
 
   ordenarPartidos() {
@@ -172,7 +172,7 @@ export class DetallesEtapaComponent implements OnInit {
   termino() {
     return this.etapa.partidos.find((partido) => {
       return partido.estado != "Terminado";
-    })
+    });
   }
 
 }

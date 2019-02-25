@@ -25,8 +25,12 @@ exports.getPartidosEtapa = (req, res) => {
     where: {
       etapaId: req.params.idEtapa
     }
-  }).then(equipos => {
-    res.send(equipos);
+  }, {
+    include: [{
+      model: db.Equipo
+    }]
+  }).then(partidos => {
+    res.send(partidos);
   });
 };
 
